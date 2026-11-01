@@ -1,7 +1,6 @@
 ---
 title: "Weird RSA"
 ctf: "Кубок CTF 2026"
-team: "p3asants w/ sp3ars"
 author: "citr0n"
 date: 2026-10-31
 category: crypto

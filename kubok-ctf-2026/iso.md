@@ -1,7 +1,6 @@
 ---
 title: "Iso"
 ctf: "Кубок CTF 2026"
-team: "p3asants w/ sp3ars"
 author: "citr0n"
 date: 2026-11-01
 category: crypto
