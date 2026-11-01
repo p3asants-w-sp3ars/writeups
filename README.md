@@ -6,7 +6,7 @@
 
 | CTF | Даты | Результат | Решено | Райтапов | Категории |
 |---|---|---|---:|---:|---|
-| [Кубок CTF 2026](kubok-ctf-2026/README.md) | 31.10 – 01.11.2026 | 8499 очков | 25 | 16 | web, crypto, misc, mobile, forensics, reverse, pwn |
+| [Кубок CTF 2026](kubok-ctf-2026/README.md) | 31.10 – 01.11.2026 | 8499 очков | 25 | 17 | web, crypto, misc, mobile, forensics, reverse, pwn |
 
 ## 🗂 Структура
 

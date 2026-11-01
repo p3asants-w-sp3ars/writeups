@@ -5,28 +5,29 @@
 | **Даты** | 31.10.2026 12:00 → 01.11.2026 12:00 (MSK) |
 | **Формат флага** | `ctfcup{...}` |
 | **Результат** | 25 решённых тасков · 8499 очков |
-| **Райтапов** | 16 |
+| **Райтапов** | 17 |
 
 ## 📝 Райтапы
 
-| Таск | Категория | Сложность | Очки | Суть решения |
-|---|---|---|---:|---|
-| [Hidden Network](hidden-network.md) | 🌐 web | 🔴 hard | 772 | SSRF через userinfo в URL (`http://mme-monitor@host/`) → сервисный тикет внутреннего агента |
-| [Iso](iso.md) | 🔐 crypto | 🔴 hard | 736 | Скрытое `p` по цепочке 2-изогений: кратное `p` → ECM → j-инвариант решёткой |
-| [Ровный робот](rovniy-robot.md) | 🧩 misc | 🔴 hard | 642 | On-chain нарды: гладкое `P-1` в VRF → Pohlig–Hellman → предсказание костей |
-| [Peridromofilia](peridromofilia.md) | 🌐 web | 🟡 medium | 567 | Mass assignment в MongoEngine-апдейте: `profile___cls` подменяет класс профиля на `ServiceCard` |
-| [Russian Post: Trust Level](mobile-russian-post.md) | 📱 mobile | 🟡 medium | 337 | APK на gomobile: decoy-функции, ручной реверс `VerifySealedParcel` в `libgojni.so` |
-| [Художественный фильм](khudozhestvenniy-film.md) | 🔍 forensics | 🔴 hard | 256 | Дамп EVM-форка: metamorphic-прокси через `CREATE`/`selfdestruct` перезаписывает слот роли |
-| [mmm](mmm.md) | ⚙️ reverse | 🟢 easy | 100 | Вход — собственный вектор зашитой матрицы 40×40 |
-| [Weird RSA](weird-rsa.md) | 🔐 crypto | 🟢 easy | 100 | RSA над `GF(257)[x]`: многочлены факторизуются за полиномиальное время |
-| [Puzzle](puzzle.md) | 🔍 forensics | 🟡 medium | 380 | Восстановление фрагментов DATX из дампа памяти, сборка PNG и декодирование QR |
-| [Noise in space](noise_in_space.md) | ⚙️ reverse | 🟡 medium | 327 | Исправление двух нулевых параметров DSP-виртуальной машины и восстановление аудиофразы |
-| [Mobile Treasure Hunters](mobile_treasure_hunters.md) | 📱 mobile | 🟡 medium | 327 | Восстановление SQLite/WAL и ключевой цепочки Android-сообщений с проверкой AES-GCM |
-| [Burmalda](burmalda.md) | ⚙️ reverse | 🟡 medium | 100 | Извлечение констант Godot и воспроизведение линейного декодера флага |
-| [filter](filter.md) | 🧩 pwn | 🟢 easy | 100 | Self-modifying shellcode обходит статический фильтр запрещённых инструкций |
-| [MeowSim: Schrodinger Edition](meowsim.md) | 📱 mobile | 🟡 medium | 100 | Декомпиляция APK и восстановление XOR-флага через SHA-256-поток |
-| [Snake](snake.md) | 🧩 misc | 🟡 medium | 100 | Гамильтонов цикл проходит все 61 клетки шестиугольного поля |
-| [My Own FS](my_own_fs.md) | 🔍 forensics | 🟢 easy | 100 | Восстановление удалённого PNG по цепочке inode в образе файловой системы |
+| Таск | Автор | Категория | Сложность | Очки | Суть решения |
+|---|---|---|---|---:|---|
+| [Hidden Network](hidden-network.md) | citr0n | 🌐 web | 🔴 hard | 772 | SSRF через userinfo в URL (`http://mme-monitor@host/`) → сервисный тикет внутреннего агента |
+| [Peridromofilia](peridromofilia.md) | citr0n | 🌐 web | 🟡 medium | 567 | Mass assignment в MongoEngine-апдейте: `profile___cls` подменяет класс профиля на `ServiceCard` |
+| [compuuuter](compuuuter.md) | citr0n | 🌐 web | 🟡 medium | 100 | TOCTOU между guard и evaluate + hash-flooding расширяет окно гонки до опкода 1337 |
+| [Iso](iso.md) | citr0n | 🔐 crypto | 🔴 hard | 736 | Скрытое `p` по цепочке 2-изогений: кратное `p` → ECM → j-инвариант решёткой |
+| [Weird RSA](weird-rsa.md) | citr0n | 🔐 crypto | 🟢 easy | 100 | RSA над `GF(257)[x]`: многочлены факторизуются за полиномиальное время |
+| [filter](filter.md) | anci31d | 🧩 pwn | 🟢 easy | 100 | Self-modifying shellcode обходит статический фильтр запрещённых инструкций |
+| [Noise in space](noise_in_space.md) | anci31d | ⚙️ reverse | 🟡 medium | 327 | Исправление двух нулевых параметров DSP-виртуальной машины и восстановление аудиофразы |
+| [mmm](mmm.md) | citr0n | ⚙️ reverse | 🟢 easy | 100 | Вход — собственный вектор зашитой матрицы 40×40 |
+| [Burmalda](burmalda.md) | anci31d | ⚙️ reverse | 🟡 medium | 100 | Извлечение констант Godot и воспроизведение линейного декодера флага |
+| [Russian Post: Trust Level](mobile-russian-post.md) | citr0n | 📱 mobile | 🟡 medium | 337 | APK на gomobile: decoy-функции, ручной реверс `VerifySealedParcel` в `libgojni.so` |
+| [Mobile Treasure Hunters](mobile_treasure_hunters.md) | anci31d | 📱 mobile | 🟡 medium | 327 | Восстановление SQLite/WAL и ключевой цепочки Android-сообщений с проверкой AES-GCM |
+| [MeowSim: Schrodinger Edition](meowsim.md) | anci31d | 📱 mobile | 🟡 medium | 100 | Декомпиляция APK и восстановление XOR-флага через SHA-256-поток |
+| [Puzzle](puzzle.md) | anci31d | 🔍 forensics | 🟡 medium | 380 | Восстановление фрагментов DATX из дампа памяти, сборка PNG и декодирование QR |
+| [Художественный фильм](khudozhestvenniy-film.md) | citr0n | 🔍 forensics | 🔴 hard | 256 | Дамп EVM-форка: metamorphic-прокси через `CREATE`/`selfdestruct` перезаписывает слот роли |
+| [My Own FS](my_own_fs.md) | anci31d | 🔍 forensics | 🟢 easy | 100 | Восстановление удалённого PNG по цепочке inode в образе файловой системы |
+| [Ровный робот](rovniy-robot.md) | citr0n | 🧩 misc | 🔴 hard | 642 | On-chain нарды: гладкое `P-1` в VRF → Pohlig–Hellman → предсказание костей |
+| [Snake](snake.md) | anci31d | 🧩 misc | 🟡 medium | 100 | Гамильтонов цикл проходит все 61 клетки шестиугольного поля |
 
 ## ✅ Все решённые таски
 
@@ -54,7 +55,7 @@
 | Burmalda | 100 | 31.10 14:01 | [📄](burmalda.md) |
 | Snake | 100 | 31.10 13:12 | [📄](snake.md) |
 | My Own FS | 100 | 31.10 12:39 | [📄](my_own_fs.md) |
-| compuuuter | 100 | 31.10 12:30 | — |
+| compuuuter | 100 | 31.10 12:30 | [📄](compuuuter.md) |
 | MMM | 100 | 31.10 12:25 | [📄](mmm.md) |
 | Weird RSA | 100 | 31.10 12:17 | [📄](weird-rsa.md) |
 
