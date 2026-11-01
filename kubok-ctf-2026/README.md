@@ -27,7 +27,7 @@
 | [MeowSim: Schrodinger Edition](meowsim.md) | anci31d | 📱 mobile | 🟡 medium | 100 | Декомпиляция APK и восстановление XOR-флага через SHA-256-поток |
 | [Snake](snake.md) | anci31d | 🧩 misc | 🟡 medium | 100 | Гамильтонов цикл проходит все 61 клетки шестиугольного поля |
 | [My Own FS](my_own_fs.md) | anci31d | 🔍 forensics | 🟢 easy | 100 | Восстановление удалённого PNG по цепочке inode в образе файловой системы |
-| [compuuuter](compuuuter.md) | d.khonichev | 🌐 web | 🟡 medium | 100 | TOCTOU между guard и evaluate + hash-flooding расширяет окно гонки до опкода 1337 |
+| [compuuuter](compuuuter.md) | citr0n | 🌐 web | 🟡 medium | 100 | TOCTOU между guard и evaluate + hash-flooding расширяет окно гонки до опкода 1337 |
 
 ## ✅ Все решённые таски
 
