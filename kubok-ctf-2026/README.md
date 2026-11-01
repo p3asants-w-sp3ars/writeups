@@ -50,7 +50,7 @@
 | MMM | 100 | 31.10 12:25 | [📄](mmm.md) |
 | Weird RSA | 100 | 31.10 12:17 | [📄](weird-rsa.md) |
 
-## ❌ Не решили
+## ❌ Не решено
 
 CyberCup 2077 · Святой Кодекс (Revenge) · Image Viewer · Connectome · Tartaros · Docus
 
