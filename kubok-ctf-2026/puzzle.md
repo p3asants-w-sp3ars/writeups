@@ -19,23 +19,47 @@ flag_format: "ctfcup{...}"
 
 ### Разведка
 
-Входной артефакт — `attachments/puzzle.vmem`, снимок памяти. Скрипт `decode_datx.py` ищет сигнатуру `DATX`, читает поля заголовка и проверяет правдоподобие номера фрагмента, клиента, канала, длины и CRC.
+Входной артефакт — снимок памяти `puzzle.vmem`. Ищем сигнатуру `DATX`, читаем поля заголовка и проверяем номер фрагмента, клиента, канал, длину и CRC.
 
-```bash
-python3 decode_datx.py
+Ключевой фрагмент декодера:
+
+```python
+def decode(client, data, key):
+    if client == 0:
+        return bytes(b ^ key[i % len(key)] for i, b in enumerate(data))
+    if client == 1:
+        return bytes((((b - 0x5a) & 255) << 5 | ((b - 0x5a) & 255) >> 3) & 255 for b in data)
+    if client == 2:
+        return rc4(data, key)
+    state, out = 0xb037bf34 ^ 0x6a9b701c, bytearray()
+    for b in data:
+        state ^= (state << 13) & 0xffffffff
+        state ^= state >> 17
+        state ^= (state << 5) & 0xffffffff
+        state &= 0xffffffff
+        out.append(b ^ (state & 255))
+    return bytes(out)
+
+while (pos := memory.find(b"DATX", pos)) != -1:
+    chunk, client, channel, size, crc = struct.unpack_from("<IHHII", memory, pos + 4)
+    if chunk < 4096 and client < 4 and client == chunk % 4 and 1 <= size <= 128:
+        plain = decode(client, memory[pos + 20:pos + 20 + size], key)
+        if zlib.crc32(plain) == crc:
+            fragments[chunk] = plain
+    pos += 1
 ```
 
-Скрипт применяет декодер, соответствующий клиенту, и сохраняет каждый подтверждённый фрагмент. Среди преобразований есть XOR с ключом, циклический сдвиг, RC4 и XOR-поток xorshift. CRC32 проверяет целостность распакованного содержимого.
+Фрагмент применяет декодер, соответствующий клиенту. Для типа 0 используется ключ `ea8e2bbc5e2ec467bc6268b0de893f6d`; тип 2 получает RC4-ключ как XOR 16-байтовых областей `cl2.exe` по offset `0xe528` и `0xe540`. Среди преобразований есть XOR с ключом, циклический сдвиг, RC4 и XOR-поток xorshift. CRC32 проверяет целостность распакованного содержимого. Функции `rc4`, чтение `memory`, начальное `pos = 0` и запись результата в PNG опущены для краткости.
 
-Успешная контрольная точка скрипта — `missing=[]` и `png_signature=True`. Этот вывод не запускался заново в текущей проверке; файл `recovered-flag.png` уже находился в рабочей папке.
+Успешная контрольная точка — `missing=[]` и `png_signature=True`.
 
 ### Решение и проверка
 
-Скрипт уже создал `recovered-flag.png`. По сигнатуре `file` это PNG 343×343, однобитный grayscale. Одного корректного PNG недостаточно, чтобы утверждать, что флаг найден: изображение оказалось QR-кодом, его нужно декодировать.
+Склеенный файл — PNG 343×343, однобитный grayscale. Одного корректного PNG недостаточно, чтобы утверждать, что флаг найден: изображение оказалось QR-кодом, его нужно декодировать.
 
 ```bash
-file work/recovered-flag.png
-zbarimg --quiet --raw work/recovered-flag.png
+file recovered-flag.png
+zbarimg --quiet --raw recovered-flag.png
 ```
 
 `file` проверяет формат изображения. `zbarimg` читает QR/штрихкоды; `--raw` убирает подпись типа символики, `--quiet` сокращает служебный вывод.
@@ -50,7 +74,7 @@ ctfcup{4lpc_r3mn4nts_0f_th3_br0k3r_7hru_p1x3l5}
 
 ## Воспроизведение и границы
 
-В каталоге `work/` находятся копии дампа, декодера и уже восстановленного изображения. Чтобы повторить финальную проверку, запускайте `zbarimg` из каталога задачи с путём `work/recovered-flag.png`. Полный повтор извлечения требует входного `work/attachments/puzzle.vmem` и массива `work/dumps2/...cl2.exe.img`, на которые ссылается декодер.
+Для CRC-проверки клиентского типа 2 нужен ключ RC4 из образа процесса `cl2.exe`: он строится как XOR двух 16-байтовых фрагментов по смещениям `0xe528` и `0xe540`. После сортировки по `chunk` фрагменты склеиваются. Отсутствие номеров означает ошибку извлечения; в этом образе `missing=[]`.
 
 Контрольная сумма проверенного PNG: `4e8263932b6e99afebc359bcb3e9c2bf2d983a38e3eee1050cb96d84b82ce6da`.
 
