@@ -4,6 +4,7 @@ ctf: "Студенческая лига CTF — Раунд 1"
 author: "anci31d"
 date: 2026-11-21
 category: stego
+difficulty: easy
 points: 350
 flag_format: "flag{...}"
 ---
