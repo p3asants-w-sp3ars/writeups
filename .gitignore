@@ -1,1 +1,5 @@
 .DS_Store
+
+# Local challenge workspace and session exports
+/ctflg/
+/codex-session-*.md
