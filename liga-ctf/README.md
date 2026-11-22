@@ -16,7 +16,7 @@
 | [Momentum](momentum.md) | citr0n | 🌐 web | 🔴 hard | 842 | Слепая SQL-инъекция при проверке промокода |
 | [Обмен](obmen.md) | anci31d | 🔐 crypto | 🟢 easy | 304 | Утечка показателя → дискретный логарифм → XOR |
 | [я просто хотел майнкрафт / Q1](minecraft-q1.md) | anci31d | 🔍 forensics | 🟡 medium | 481 | HTTP-трафик раскрывает сервер эксфильтрации |
-| [Can YOU handle it?](CAN_YOU_handle_it?.md) | zx689abn74y | 🔍 forensics | 🟡 medium | 481 | В дампе pinned-строка указывает на XOR-зашифр. telemetry.bin; берём 37 байт со смещения 7434 и xor-им 0xFC |
+| [Can YOU handle it?](Can_YOU_handle_it?.md) | zx689abn74y | 🔍 forensics | 🟡 medium | 481 | В дампе pinned-строка указывает на XOR-зашифр. telemetry.bin; берём 37 байт со смещения 7434 и xor-им 0xFC |
 | [я просто хотел майнкрафт / Q2](minecraft-q2.md) | anci31d | 🔍 forensics | 🟡 medium | 521 | LD_PRELOAD скрывает артефакты атаки |
 | [я просто хотел майнкрафт / Q3](minecraft-q3.md) | anci31d | 🔍 forensics | 🟡 medium | 534 | Установщик пакета раскрывает конфигурацию cron |
 | [Сработка](srabotka.md) | citr0n | 🔍 forensics | 🟡 medium | 494 | Состояние TCP-клиента и XOR двух блоков |
