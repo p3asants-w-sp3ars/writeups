@@ -2,6 +2,7 @@
 title: "я просто хотел майнкрафт / Q2"
 ctf: "Студенческая лига CTF — Раунд 1"
 author: "anci31d"
+date: 2026-11-21
 category: forensics
 points: 521
 flag_format: "flag{...}"

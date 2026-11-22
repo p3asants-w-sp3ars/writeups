@@ -7,7 +7,7 @@
 | CTF | Даты | Результат | Решено | Райтапов | Категории |
 |---|---|---|---:|---:|---|
 | [Кубок CTF 2026](kubok-ctf-2026/README.md) | 31.10 – 01.11.2026 | 8499 очков | 25 | 17 | web, crypto, misc, mobile, forensics, reverse, pwn |
-| [Студенческая лига CTF — Раунд 1](liga-ctf/README.md) | снимок борды 22.11.2026 | 5324 очка · 70-е место | 11 | 6 | crypto, forensics, stego |
+| [Студенческая лига CTF — Раунд 1](liga-ctf/README.md) | 21.11.2026 | 5324 очка · 70-е место | 11 | 6 | crypto, forensics, stego |
 
 ## 🗂 Структура
 

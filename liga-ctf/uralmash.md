@@ -2,6 +2,7 @@
 title: "Uralmash"
 ctf: "Студенческая лига CTF — Раунд 1"
 author: "anci31d"
+date: 2026-11-21
 category: stego
 points: 572
 flag_format: "flag{...}"
